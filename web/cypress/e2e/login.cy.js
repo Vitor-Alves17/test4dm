@@ -18,8 +18,8 @@ describe('login', () => {
   it('blank spaces', () => {
     cy.visit('http://localhost:3000')
     cy.contains('button', 'Entrar').click()
-    cy.contains('Ei, não esqueça de digitar seu email!').should("be.visible")
-    cy.contains('Você precisa de uma senha para entrar! 🔒').should("be.visible")
+    cy.contains('Ei, não esqueça de digitar seu email!').should("be.visible").and('have.css', 'color', 'rgb(248,113,113)')
+    cy.contains('Você precisa de uma senha para entrar! 🔒').should("be.visible").and('have.css', 'color', 'rgb(248,113,113)')
   })
 
   it('invalid password', () => {
