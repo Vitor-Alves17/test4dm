@@ -12,5 +12,22 @@ describe('formulario', () => {
 
     cy.contains('label', 'Pessoa Jurídica').find('input[type=radio]').click().should('be.checked')
     cy.contains('label', 'Pessoa Física').find('input[type=radio]').should('be.not.checked')
+
+    const sociais = [
+        'Instagram',
+        'YouTube',
+        'LinkedIn',
+        'Indicação de Amigo',
+        'Udemy'
+    ]
+
+    sociais.forEach((social) => {
+      cy.contains('label', social).find('input[type=checkbox]').click().should('be.checked')
+    })
+
+    const techs = ['Python, ', 'Java, ', 'JavaScript, ', 'HTML, ', 'CSS']
+    techs.forEach(tech => {
+      cy.get('#technologies').type(tech)
+    })
   })
 })
